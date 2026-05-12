@@ -3,7 +3,8 @@
 import { useState } from "react";
 import SoilInput from "@/components/SoilInput";
 import ImageUpload from "@/components/ImageUpload";
-import { SOIL_PRESETS } from "@/lib/presets";
+import PlantSelector from "@/components/PlantSelector";
+import { SOIL_PRESETS, PlantName } from "@/lib/presets";
 
 type FormData = {
   airHumidity: string;
@@ -35,6 +36,7 @@ const INITIAL: FormData = {
 
 export default function Home() {
   const [form, setForm] = useState<FormData>(INITIAL);
+  const [selectedPlant, setSelectedPlant] = useState<PlantName | null>(null);
   const [loading, setLoading] = useState(false);
 
   const set = (key: keyof FormData, value: string) =>
@@ -81,6 +83,7 @@ export default function Home() {
           <div className="grid grid-cols-3 gap-6">
             {/* Left: 2 columns */}
             <div className="col-span-2 flex flex-col gap-6">
+              <PlantSelector selected={selectedPlant} onChange={setSelectedPlant} />
 
               {/* 환경 정보 */}
               <div className="bg-white rounded-2xl border border-green-100 p-6 shadow-sm">

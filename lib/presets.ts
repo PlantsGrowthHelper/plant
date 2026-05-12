@@ -1,3 +1,23 @@
+export const PLANT_NAMES = [
+  "몬스테라",
+  "보스턴고사리",
+  "홍콩야자",
+  "스파티필럼",
+  "테이블야자",
+  "호접란",
+  "부레옥잠",
+  "선인장",
+  "스투키",
+  "금전수",
+  "벵갈고무나무",
+  "디펜바키아",
+  "관음죽",
+  "오렌지자스민",
+  "올리브나무",
+] as const;
+
+export type PlantName = (typeof PLANT_NAMES)[number];
+
 export type SoilPreset = {
   label: string;
   values: {
